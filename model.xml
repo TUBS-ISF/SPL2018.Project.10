@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<featureModel>
+    <properties/>
+    <struct>
+        <and abstract="true" mandatory="true" name="ScaleModellingDocumentation">
+            <and mandatory="true" name="ScaleModell">
+                <and abstract="true" mandatory="true" name="Information">
+                    <feature mandatory="true" name="Scale"/>
+                    <feature mandatory="true" name="Name"/>
+                    <or abstract="true" name="Optional">
+                        <feature name="ScaleModellManufacturer"/>
+                        <feature name="OriginalCountry"/>
+                        <feature name="ScaleWidth"/>
+                        <feature name="ScaleHeight"/>
+                        <feature name="ScaleLength"/>
+                    </or>
+                </and>
+                <feature name="DeleteScaleModell"/>
+                <feature name="InsertScaleModell"/>
+                <feature name="GetScaleModell"/>
+            </and>
+            <alt abstract="true" mandatory="true" name="UI">
+                <feature name="GUI"/>
+                <feature name="CMD"/>
+            </alt>
+            <and name="ScaleModellList">
+                <alt abstract="true" name="sort">
+                    <feature name="byName"/>
+                    <feature name="byScale"/>
+                    <feature name="byScaleModellManufacturer"/>
+                    <feature name="byOriginalCountry"/>
+                </alt>
+                <feature name="SearchScaleModell"/>
+                <feature name="ImportScaleModell"/>
+            </and>
+            <alt abstract="true" mandatory="true" name="DataFormat">
+                <feature name="CSV"/>
+                <feature name="XML"/>
+                <feature name="PostgreSQL"/>
+            </alt>
+        </and>
+    </struct>
+    <constraints>
+        <rule>
+            <description>
+Import =&gt; insert
+</description>
+            <imp>
+                <var>ImportScaleModell</var>
+                <var>InsertScaleModell</var>
+            </imp>
+        </rule>
+        <rule>
+            <imp>
+                <var>byName</var>
+                <var>Name</var>
+            </imp>
+        </rule>
+        <rule>
+            <imp>
+                <var>byOriginalCountry</var>
+                <var>OriginalCountry</var>
+            </imp>
+        </rule>
+        <rule>
+            <imp>
+                <var>byScale</var>
+                <var>Scale</var>
+            </imp>
+        </rule>
+        <rule>
+            <imp>
+                <var>byScaleModellManufacturer</var>
+                <var>ScaleModellManufacturer</var>
+            </imp>
+        </rule>
+        <rule>
+            <disj>
+                <var>GetScaleModell</var>
+                <var>SearchScaleModell</var>
+            </disj>
+        </rule>
+        <rule>
+            <imp>
+                <var>sort</var>
+                <var>SearchScaleModell</var>
+            </imp>
+        </rule>
+    </constraints>
+    <calculations Auto="true" Constraints="true" Features="true" Redundant="true" Tautology="true"/>
+    <comments/>
+    <featureOrder userDefined="false"/>
+</featureModel>

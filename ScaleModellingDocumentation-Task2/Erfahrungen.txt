@@ -1,0 +1,17 @@
+Fehler beim Testen:
+Beim Wechseln zwischen den Configs scheint Eclipse manchmal ein Problem zu haben. Es hat den Anschein, dass er beim Wechseln die neue Config-Datei mit der alten Config-Datei manchmal überschreibt und man dann erst mal die Config-Datei anpassen muss.
+
+Vorgehensweise:
+1. Möglichkeit schaffen die Config-Datei einlesen zu können. Ín meinem Fall Singleton globalInfos, der beim Erzeugen von sich selbst die Config-Datei einliest.
+2. Klasse für ScaleModells erzeugt in der die Daten gespeichert werden können.
+3. Möglichkeit schaffen, dass über die Commandozeile ScaleModells erzeugt werden können. Hierzu wurde eine Klasse ScaleModellArrayList erzeugt, die von ArrayList erbt und als Objekt-Klasse ScaleModell hat. Beim Adden in die Liste wird automatisch ein Objekt in die CSV-Datei hineingeschrieben.
+4. Möglichkeit schaffen, dass man über die Commandozeile ScaleModells ausgeben kann.
+5. Möglichkeit schaffen, die CSV-Datei einlesen zu können. Hierfür wurde die ScaleModellArrayList erweitert. Wichtig hier nicht die überschriebene Add-Methode nehmen, sondern die super.add Methode nehmen. Sonst wird beim Einlesen direkt ein neuer Eintrag in der Datei abgelegt.
+
+Änderungen:
+Ich musste noch ein paar configs adden, um einige Zustände zu testen
+
+Config-Dateien:
+GUIMaxModellSearchMin, GUISearchMin: verhalten sich gleich, sind aber nutzlos, da Features noch nicht impl sind
+GUIInsertMin, Insert: Verhalten sich gleich
+GUIMax, GetAndInsert, GUIMaxModellInsertMin: Verhalten sich gleich

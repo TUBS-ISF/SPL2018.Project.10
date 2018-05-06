@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<configuration>
+    <feature automatic="selected" manual="selected" name="ScaleModellingDocumentation"/>
+    <feature automatic="selected" name="ScaleModell"/>
+    <feature automatic="selected" name="Information"/>
+    <feature automatic="selected" name="Scale"/>
+    <feature automatic="selected" name="Name"/>
+    <feature manual="selected" name="InsertScaleModell"/>
+    <feature manual="selected" name="GetScaleModell"/>
+    <feature automatic="selected" name="UI"/>
+    <feature automatic="unselected" name="GUI"/>
+    <feature manual="selected" name="CMD"/>
+    <feature automatic="selected" name="DataFormat"/>
+    <feature manual="selected" name="CSV"/>
+    <feature automatic="unselected" name="XML"/>
+    <feature automatic="unselected" name="PostgreSQL"/>
+</configuration>

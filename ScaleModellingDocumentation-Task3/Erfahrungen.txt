@@ -1,0 +1,18 @@
+Fehler beim Testen:
+Beim Wechseln zwischen den Configs scheint Eclipse manchmal ein Problem zu haben. Es hat den Anschein, dass er beim Wechseln die neue Config-Datei mit der alten Config-Datei manchmal überschreibt und man dann erst mal die Config-Datei anpassen muss.
+
+Vorgehensweise:
+1. Neues Projekt angelegt
+2. Quellcode aus Task2 kopiert
+3. Konfigurationsmanager entfernen
+4. An Orten, an denen die Flags abgefragt wurden, durch ifdef Anweisungen ersetzen
+5. CSV-Datei erweitern
+6. Testen
+
+Änderungen:
+Ich musste noch eine config adden, um einige Zustände zu testen
+
+Config-Dateien:
+GUIMaxModellSearchMin, GUISearchMin: verhalten sich gleich, sind aber nutzlos, da Features noch nicht impl sind
+GUIInsertMin, Insert: Verhalten sich gleich
+GUIMax, GUIMaxModellInsertMin: Verhalten sich gleich

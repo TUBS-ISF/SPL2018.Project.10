@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<featureModel>
+    <properties/>
+    <struct>
+        <and abstract="true" mandatory="true" name="ScaleModellingDocumentation">
+            <description>
+a small software which you can manage scale modells.
+</description>
+            <and mandatory="true" name="ScaleModell">
+                <and abstract="true" mandatory="true" name="Information">
+                    <description>
+Which Information are available?
+</description>
+                    <feature mandatory="true" name="Scale"/>
+                    <feature mandatory="true" name="Name"/>
+                    <or abstract="true" name="Optional">
+                        <feature name="ScaleModellManufacturer"/>
+                        <feature abstract="true" name="OriginalCountry"/>
+                        <feature name="ScaleWidth"/>
+                        <feature name="ScaleHeight"/>
+                        <feature abstract="true" name="ScaleLength"/>
+                    </or>
+                </and>
+                <feature name="DeleteScaleModell">
+                    <description>
+Can the user delete a scale modell
+</description>
+                </feature>
+                <feature name="InsertScaleModell">
+                    <description>
+Can the user insert a scale modell
+</description>
+                </feature>
+                <feature name="GetScaleModell">
+                    <description>
+Can the user get a single scale modell
+</description>
+                </feature>
+            </and>
+            <alt abstract="true" mandatory="true" name="UI">
+                <description>
+Which UI is useable?
+</description>
+                <feature abstract="true" name="GUI"/>
+                <feature name="CMD"/>
+            </alt>
+            <and abstract="true" name="ScaleModellList">
+                <alt abstract="true" name="sort">
+                    <feature abstract="true" name="byName"/>
+                    <feature abstract="true" name="byScale"/>
+                    <feature abstract="true" name="byScaleModellManufacturer"/>
+                    <feature abstract="true" name="byOriginalCountry"/>
+                </alt>
+                <feature abstract="true" name="SearchScaleModell">
+                    <description>
+Can the user search a scale modell
+</description>
+                </feature>
+                <feature abstract="true" name="ImportScaleModell">
+                    <description>
+Can the user import a list of scale modells
+</description>
+                </feature>
+            </and>
+            <alt abstract="true" mandatory="true" name="DataFormat">
+                <description>
+Which data format use the data format
+</description>
+                <feature name="CSV"/>
+                <feature abstract="true" name="XML"/>
+                <feature abstract="true" name="PostgreSQL"/>
+            </alt>
+        </and>
+    </struct>
+    <constraints>
+        <rule>
+            <description>
+Import cannot be available when you cannot insert a single scale modell
+</description>
+            <imp>
+                <var>ImportScaleModell</var>
+                <var>InsertScaleModell</var>
+            </imp>
+        </rule>
+        <rule>
+            <description>
+You cannot sort by something when the something is not available
+</description>
+            <imp>
+                <var>byOriginalCountry</var>
+                <var>OriginalCountry</var>
+            </imp>
+        </rule>
+        <rule>
+            <description>
+You cannot sort by something when the something is not available
+</description>
+            <imp>
+                <var>byScaleModellManufacturer</var>
+                <var>ScaleModellManufacturer</var>
+            </imp>
+        </rule>
+        <rule>
+            <description>
+The software is useless when you cannot show a scale modell
+</description>
+            <disj>
+                <var>GetScaleModell</var>
+                <disj>
+                    <var>SearchScaleModell</var>
+                    <var>InsertScaleModell</var>
+                </disj>
+            </disj>
+        </rule>
+        <rule>
+            <description>
+Sort is useless when you cannot show the scale modells as list
+</description>
+            <imp>
+                <var>sort</var>
+                <var>SearchScaleModell</var>
+            </imp>
+        </rule>
+    </constraints>
+    <calculations Auto="true" Constraints="true" Features="true" Redundant="true" Tautology="true"/>
+    <comments/>
+    <featureOrder userDefined="false"/>
+</featureModel>

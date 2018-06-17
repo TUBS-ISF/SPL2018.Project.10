@@ -1,0 +1,4 @@
+Fehler beim Testen:
+Manchmal wurde Features nicht eingepflegt, obwohl sie ausgew‰hlt wurden. Siehe scaleLength, ich weiﬂ nicht warum es nicht eingebaut wird.
+
+Die Funktionen mussten umgeschrieben werden, aber mit den Erfahrungen aus der HA davor war es in Ordnung. Eclipse hatte zwar Aussetzer, aber im Groﬂen und Ganzen konnte ich es wenigstens testen.
